@@ -1,0 +1,8 @@
+# Ignorar o arquivo .env e outros arquivos sensíveis
+.env
+*.log
+node_modules/
+.DS_Store
+.idea/
+.vscode/
+bin/
