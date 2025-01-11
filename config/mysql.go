@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/gustasousaghs/carros-pcd-service/models"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -34,6 +35,8 @@ func MysqlConnect() {
 	if dbErr != nil {
 		log.Fatal("Erro ao conectar com o banco de dados:", dbErr)
 	}
-
+	if err := DB.AutoMigrate(&models.Car{}); err != nil {
+		log.Fatal("Erro ao migrar o banco de dados:", err)
+	}
 	fmt.Println("Banco de dados conectado com sucesso!")
 }
